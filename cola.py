@@ -5,7 +5,7 @@ class micola:
     TAD cola sobre la class lista"""
 
     __data = []
-    __hmax = None
+    __hmax = None # todo refact: lmax
 
     def __init__(self, hmax=10):
         # self.__data = []
@@ -46,23 +46,23 @@ class micola:
 
 if __name__ == "__main__":
 
-    mc = []
-    print(mc) # []
+    c = []   # TODO: use mc = micola()
+    print(c) # []
   
-    mc.append('11')
-    print(mc) # ['11']
+    c.append('welo')
+    print(c) # ['welo']
 
-    mc.append('22')
-    print(mc) # ['11', '22']
+    c.append('papa')
+    print(c) # ['welo', 'papa']
 
-    mc.append('33')
-    print(mc) # ['11', '22', '33']
+    c.append('hijo')
+    print(c) # ['welo', 'papa', hijo]
 
-    print(mc.pop(0)) # 11
-    print(mc) # ['22', '33']
+    print(c.pop(0)) # 11
+    print(c) # ['papa', hijo]
 
-    print(mc.pop(0)) # 22
-    print(mc) # ['33']
+    print(c.pop(0)) # papa
+    print(c) # [hijo]
     
-    print(mc.pop(0)) # 33
-    print(mc)  # []   
+    print(c.pop(0)) # 33
+    print(c)  # []   
