@@ -2,9 +2,7 @@
 
 class mipila:
     """
-    TAD pila sobre la class lista
-    lanza excepciones ...
-    """
+    TAD pila sobre la class lista"""
 
     # __h = 0
     __data = []
@@ -23,7 +21,6 @@ class mipila:
         return answ
 
     def push(self,algo):
-        # TODO: raise overflow
         if not self.esLlena():
             self.__data.append(algo)
 

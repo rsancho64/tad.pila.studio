@@ -2,9 +2,7 @@
 
 class mipila:
     """
-    TAD pila sobre la class lista
-    lanza excepciones ...
-    """
+    TAD pila sobre la class lista"""
 
     # __h = 0
     __data = []
@@ -17,13 +15,11 @@ class mipila:
     def __str__(self) -> str:
         answ = "<"
         answ += f"{self.h()} de {self.__hmax}, {self.__data}"
-        if self.esVacia(): answ += " VACIA"        
         if self.esLlena(): answ += " LLENA"
         answ += ">"
         return answ
 
     def push(self,algo):
-        # TODO: raise overflow
         if not self.esLlena():
             self.__data.append(algo)
 
@@ -31,8 +27,7 @@ class mipila:
         try:
             return self.__data.pop()
         except IndexError:
-            # return None
-            raise ValueError(f'pop: empty stack')
+            return None
 
     def esLlena(self) -> bool:
         if len(self.__data) == self.__hmax:
@@ -40,8 +35,7 @@ class mipila:
         return False
 
     def esVacia(self) -> bool:
-        # return not self.esLlena()   # ERROR !
-        return 0 == len(self.__data)
+        return not self.esLlena()
 
     def h(self) -> int:
         return len(self.__data)
@@ -93,37 +87,4 @@ if __name__ == "__main__":
     mp3.push(None)
     print(mp3)
 
-    mp3.push(None)
-    print(mp3)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
-
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
-
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
-
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
-
-    # item = mp3.pop()  # falta manejo.
-    
-    # IndexError: pop from empty list
-    # During handling of the above exception, another exception occurred:
-    # Traceback (most recent call last):
-    # File "...py" line nnn, in <module>
-    #     item = mp3.pop()
-    #         ^^^^^^^^^
-    # File "...py" line nnn, in pop()
-    #     raise ValueError(f'empty stack')
-    # ValueError: empty stack
-    
-    try:   # manejo.
-        item = mp3.pop()
-        print(mp3, mp3.esLlena(), "popped: ", item)
-    except ValueError:
-        print("main: empty stack")
-       
-        
