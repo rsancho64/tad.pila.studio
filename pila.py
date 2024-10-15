@@ -22,10 +22,12 @@ class mipila:
         answ += ">"
         return answ
 
-    def push(self,algo):
-        # TODO: raise overflow
+    def push(self,algo) -> bool:
         if not self.esLlena():
             self.__data.append(algo)
+            return True
+        else:
+            raise OverflowError
 
     def pop(self):
         try:
@@ -54,59 +56,59 @@ if __name__ == "__main__":
     # mp = mipila()
     # print(mp)
 
-    mp3 = mipila(20)  # tested: default, 8, 4, 3, 2, 1, 0 OK
-    print(mp3)
+    # mp3 = mipila(20)  # tested: default, 8, 4, 3, 2, 1, 0 OK
+    # print(mp3)
 
-    mp3.push(11)
-    print(mp3)
+    # mp3.push(11)
+    # print(mp3)
 
-    mp3.push(33)
-    print(mp3)
+    # mp3.push(33)
+    # print(mp3)
 
-    mp3.push(22)
-    print(mp3)
+    # mp3.push(22)
+    # print(mp3)
 
-    mp3.push("doblada")
-    print(mp3)
+    # mp3.push("doblada")
+    # print(mp3)
 
     # mp3.drop()
     # print(mp3)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "item: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "item: ", item)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "item: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "item: ", item)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "item: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "item: ", item)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "item: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "item: ", item)
 
-    mp3.push(None)
-    print(mp3)
+    # mp3.push(None)
+    # print(mp3)
 
-    mp3.push("algo mas")
-    print(mp3)
+    # mp3.push("algo mas")
+    # print(mp3)
 
-    mp3.push(None)
-    print(mp3)
+    # mp3.push(None)
+    # print(mp3)
 
-    mp3.push(None)
-    print(mp3)
+    # mp3.push(None)
+    # print(mp3)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "popped: ", item)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "popped: ", item)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "popped: ", item)
 
-    item = mp3.pop()
-    print(mp3, mp3.esLlena(), "popped: ", item)
+    # item = mp3.pop()
+    # print(mp3, mp3.esLlena(), "popped: ", item)
 
     # item = mp3.pop()  # falta manejo.
     
@@ -120,10 +122,29 @@ if __name__ == "__main__":
     #     raise ValueError(f'empty stack')
     # ValueError: empty stack
     
-    try:   # manejo.
-        item = mp3.pop()
-        print(mp3, mp3.esLlena(), "popped: ", item)
-    except ValueError:
-        print("main: empty stack")
+    # try:   # manejo.
+    #     item = mp3.pop()
+    #     print(mp3, mp3.esLlena(), "popped: ", item)
+    # except ValueError:
+    #     print("main: empty stack")
        
-        
+
+    pila = mipila(3)
+    print(pila)
+
+    pila.push(11)
+    print(pila)
+
+    pila.push(22)
+    print(pila)
+
+    pila.push(33)
+    print(pila) 
+
+    try:
+        pila.push(44)
+        print(pila) 
+    except OverflowError:
+        print("no pudo ser, pila llena")
+    # except OtroError:
+    #     print("no pudo ser, otracosa")
